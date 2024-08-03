@@ -1,3 +1,4 @@
+import 'package:confirm_dialog/confirm_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_crud_mvc_patter_with_fake_store_api/controllers/product_controller.dart';
 import 'package:flutter_crud_mvc_patter_with_fake_store_api/widgets/product_card.dart';
@@ -41,7 +42,19 @@ class _ProductListState extends State<ProductList> {
                       category: '${product.category}',
                       price: product.price!,
                       title: '${product.title}',
-                      onDelete: () {},
+                      onDelete: () async {
+                        if (await confirm(
+                          context,
+                          title: const Text('Confirm'),
+                          content: const Text('Would you like to remove?'),
+                          textOK: const Text('Yes'),
+                          textCancel: const Text('No'),
+                        )) {
+                          productController.deleteProduct(product.id!);
+                          return print('pressedOK');
+                        }
+                        return print('pressedCancel');
+                      },
                       onEdit: () {},
                     ),
                   ),
