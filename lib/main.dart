@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_crud_mvc_patter_with_fake_store_api/view/product_list.dart';
+import 'package:flutter_crud_mvc_patter_with_fake_store_api/screens/product_list.dart';
 
 void main() {
   runApp(const MyApp());
