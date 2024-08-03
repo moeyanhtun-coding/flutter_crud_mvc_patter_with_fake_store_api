@@ -65,6 +65,7 @@ class ProductController extends GetxController {
       print(e.toString());
     } finally {
       isLoading(false);
+      print("success ${id}");
     }
   }
 }
