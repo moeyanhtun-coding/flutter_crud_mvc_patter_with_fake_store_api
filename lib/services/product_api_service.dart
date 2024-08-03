@@ -42,7 +42,7 @@ class ProductApiService {
   }
 
   //* this is update product
-  Future<ProductModel> updateProduct(int id, ProductModel product) async {
+  Future<ProductModel> patchProduct(int id, ProductModel product) async {
     final response = await http.patch(
       Uri.parse('$baseUrl/$id'),
       headers: {"Content-Type": "application/json"},
