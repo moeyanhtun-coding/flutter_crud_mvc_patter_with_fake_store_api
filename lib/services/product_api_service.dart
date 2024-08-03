@@ -26,9 +26,15 @@ class ProductApiService {
   }
 
   Future<ProductModel> createProduct(ProductModel product) async {
-    final response = await http.post(Uri.parse(baseUrl), headers: {"Content-Type": "application/json"}, body: json.encode(product.toJson()));
+    final response = await http.post(
+      Uri.parse(baseUrl),
+      headers: {"Content-Type": "application/json"},
+      body: json.encode(product.toJson()),
+    );
     if (response.statusCode == 200) {
-      return 
+      return ProductModel.fromJson(json.decode(response.body));
+    } else {
+      throw Exception('Failed to create product');
     }
   }
 }
