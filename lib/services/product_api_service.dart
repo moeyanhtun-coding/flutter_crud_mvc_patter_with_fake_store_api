@@ -6,6 +6,7 @@ import 'package:http/http.dart' as http;
 class ProductApiService {
   final String baseUrl = 'https://fakestoreapi.com/products';
 
+  //* this is get products list function
   Future<List<ProductModel>> fetchProducts() async {
     final response = await http.get(Uri.parse(baseUrl));
     if (response.statusCode == 200) {
@@ -16,6 +17,7 @@ class ProductApiService {
     }
   }
 
+  //* this is get product detail
   Future<ProductModel> fetchProductDetail(int id) async {
     final response = await http.get(Uri.parse('$baseUrl/$id'));
     if (response.statusCode == 200) {
@@ -25,6 +27,7 @@ class ProductApiService {
     }
   }
 
+  //* this is create product
   Future<ProductModel> createProduct(ProductModel product) async {
     final response = await http.post(
       Uri.parse(baseUrl),
@@ -35,6 +38,28 @@ class ProductApiService {
       return ProductModel.fromJson(json.decode(response.body));
     } else {
       throw Exception('Failed to create product');
+    }
+  }
+
+  //* this is update product
+  Future<ProductModel> updateProduct(int id, ProductModel product) async {
+    final response = await http.patch(
+      Uri.parse('$baseUrl/$id'),
+      headers: {"Content-Type": "application/json"},
+      body: json.encode(product.toJson()),
+    );
+    if (response.statusCode == 200) {
+      return ProductModel.fromJson(json.decode(response.body));
+    } else {
+      throw Exception('Failed to update product');
+    }
+  }
+
+  //* this is delete products
+  Future<void> deleteProduct(int id) async {
+    final response = await http.delete(Uri.parse('$baseUrl/$id'));
+    if (response.statusCode != 200) {
+      throw Exception('Failed to delete product');
     }
   }
 }
