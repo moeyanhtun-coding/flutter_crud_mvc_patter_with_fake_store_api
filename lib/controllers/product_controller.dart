@@ -57,12 +57,14 @@ class ProductController extends GetxController {
     }
   }
 
-  void deleteProduct(int id) async {
+  Future<bool> deleteProduct(int id) async {
     try {
       isLoading(true);
       await ProductApiService().deleteProduct(id);
+      return true;
     } catch (e) {
       print(e.toString());
+      return false;
     } finally {
       isLoading(false);
       print("success ${id}");
