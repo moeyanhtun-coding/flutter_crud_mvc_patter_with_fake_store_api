@@ -42,9 +42,9 @@ class ProductCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    category.toUpperCase(),
+                    title.toUpperCase(),
                     style: TextStyle(
-                      fontSize: MediaQuery.sizeOf(context).width * 0.043,
+                      fontSize: MediaQuery.sizeOf(context).width * 0.04,
                       fontWeight: FontWeight.bold,
                     ),
                     maxLines: 1,
@@ -54,7 +54,7 @@ class ProductCard extends StatelessWidget {
                     category,
                     style: TextStyle(
                       color: Colors.grey,
-                      fontSize: MediaQuery.sizeOf(context).width * 0.043,
+                      fontSize: MediaQuery.sizeOf(context).width * 0.04,
                       fontWeight: FontWeight.w500,
                     ),
                     maxLines: 1,
