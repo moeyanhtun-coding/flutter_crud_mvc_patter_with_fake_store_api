@@ -56,10 +56,12 @@ class ProductApiService {
   }
 
 //* this is delete products
-  Future<void> deleteProduct(int id) async {
+  Future<bool> deleteProduct(int id) async {
     final response = await http.delete(Uri.parse('$baseUrl/$id'));
-    if (response.statusCode != 200) {
-      throw Exception('Failed to delete product');
+    if (response.statusCode == 200) {
+      return true;
+    } else {
+      return false;
     }
   }
 }
