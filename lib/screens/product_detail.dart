@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_crud_mvc_patter_with_fake_store_api/models/product_model.dart';
 
@@ -15,14 +16,21 @@ class _ProductDetailState extends State<ProductDetail> {
         ModalRoute.of(context)?.settings.arguments as ProductModel;
     return Scaffold(
       appBar: AppBar(
-        title: Text("Product Detail"),
+        title: const Text("Product Detail"),
       ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
           child: Column(
             children: [
-              Expanded(child: _productDetail(productModel.image.toString())),
+              Expanded(
+                child: _productDetail(
+                    productModel.image.toString(),
+                    productModel.title.toString(),
+                    productModel.category.toString(),
+                    productModel.price.toString(),
+                    productModel.description.toString()),
+              ),
             ],
           ),
         ),
@@ -30,8 +38,14 @@ class _ProductDetailState extends State<ProductDetail> {
     );
   }
 
-  Widget _productDetail(String img) {
-    return Column(
+  Widget _productDetail(
+    String img,
+    String title,
+    category,
+    price,
+    description,
+  ) {
+    return ListView(
       children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(10),
@@ -41,7 +55,53 @@ class _ProductDetailState extends State<ProductDetail> {
             image: NetworkImage(img),
             fit: BoxFit.cover,
           ),
-        )
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        Text(
+          title,
+          style: const TextStyle(
+            fontSize: 14.5,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        Text(
+          category,
+          style: const TextStyle(
+            fontSize: 14,
+            fontWeight: FontWeight.bold,
+            color: Colors.grey,
+          ),
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        Text(
+          '\$ $price',
+          style: const TextStyle(
+            fontSize: 14.5,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        const Text(
+          "Description",
+          style: TextStyle(
+            fontSize: 14.5,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        const SizedBox(
+          height: 5,
+        ),
+        Text(
+          description,
+          style: const TextStyle(
+              fontSize: 14.5, fontWeight: FontWeight.bold, color: Colors.grey),
+        ),
       ],
     );
   }
