@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_crud_mvc_patter_with_fake_store_api/screens/product_detail.dart';
 import 'package:flutter_crud_mvc_patter_with_fake_store_api/screens/product_list.dart';
 
 void main() {
@@ -12,6 +13,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      routes: {
+        '/detail': (context) => ProductDetail(),
+      },
       debugShowCheckedModeBanner: false,
       home: ProductList(),
     );
