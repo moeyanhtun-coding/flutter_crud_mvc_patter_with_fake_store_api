@@ -15,7 +15,7 @@ class _ProductDetailState extends State<ProductDetail> {
         ModalRoute.of(context)?.settings.arguments as ProductModel;
     return Scaffold(
       appBar: AppBar(
-        title: Text("Product Detail"),
+        title: const Text("Product Detail"),
       ),
       body: SafeArea(
         child: Padding(
