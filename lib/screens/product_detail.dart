@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_crud_mvc_patter_with_fake_store_api/models/product_model.dart';
+import 'package:flutter_crud_mvc_patter_with_fake_store_api/widgets/custom_elevated_button.dart';
 
 class ProductDetail extends StatefulWidget {
   const ProductDetail({super.key});
@@ -22,15 +23,19 @@ class _ProductDetailState extends State<ProductDetail> {
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Expanded(
                 child: _productDetail(
-                    productModel.image.toString(),
-                    productModel.title.toString(),
-                    productModel.category.toString(),
-                    productModel.price.toString(),
-                    productModel.description.toString()),
+                  productModel.image.toString(),
+                  productModel.title.toString(),
+                  productModel.category.toString(),
+                  productModel.price.toString(),
+                  productModel.description.toString(),
+                ),
               ),
+              Divider(),
+              _detailButton(),
             ],
           ),
         ),
@@ -100,9 +105,41 @@ class _ProductDetailState extends State<ProductDetail> {
         Text(
           description,
           style: const TextStyle(
-              fontSize: 14.5, fontWeight: FontWeight.bold, color: Colors.grey),
+            fontSize: 14.5,
+            fontWeight: FontWeight.bold,
+            color: Colors.grey,
+          ),
         ),
       ],
+    );
+  }
+
+  Widget _detailButton() {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Row(
+        children: [
+          Expanded(
+            child: CustomElevatedButton(
+              onPressed: () {},
+              label: "Buy Now",
+              backGroundColor: Colors.greenAccent,
+              textColor: Colors.black,
+            ),
+          ),
+          SizedBox(
+            width: 20,
+          ),
+          Expanded(
+            child: CustomElevatedButton(
+              onPressed: () {},
+              label: "Message",
+              backGroundColor: Colors.grey.shade200,
+              textColor: Colors.black,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
