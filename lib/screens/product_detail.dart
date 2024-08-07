@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_crud_mvc_patter_with_fake_store_api/models/product_model.dart';
-import 'package:flutter_crud_mvc_patter_with_fake_store_api/widgets/custom_elevated_button.dart';
+import 'package:flutter_crud_mvc_patter_with_fake_store_api/screens/widgets/custom_elevated_button.dart';
 
 class ProductDetail extends StatefulWidget {
   const ProductDetail({super.key});
