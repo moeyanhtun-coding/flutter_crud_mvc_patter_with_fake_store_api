@@ -1,5 +1,5 @@
 import 'package:flutter_crud_mvc_patter_with_fake_store_api/models/product_model.dart';
-import 'package:flutter_crud_mvc_patter_with_fake_store_api/services/product_api_service.dart';
+import 'package:flutter_crud_mvc_patter_with_fake_store_api/controllers/services/product_api_service.dart';
 import 'package:get/get.dart';
 
 class ProductController extends GetxController {
