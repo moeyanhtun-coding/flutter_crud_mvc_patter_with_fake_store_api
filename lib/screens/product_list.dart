@@ -3,7 +3,7 @@ import 'dart:ffi';
 import 'package:confirm_dialog/confirm_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_crud_mvc_patter_with_fake_store_api/controllers/product_controller.dart';
-import 'package:flutter_crud_mvc_patter_with_fake_store_api/widgets/product_card.dart';
+import 'package:flutter_crud_mvc_patter_with_fake_store_api/screens/widgets/product_card.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 
